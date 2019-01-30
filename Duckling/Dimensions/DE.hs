@@ -19,4 +19,5 @@ allDimensions =
   , This Numeral
   , This Ordinal
   , This Time
+  , This Volume
   ]

@@ -9,9 +9,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
-
-module Duckling.Distance.DE.Rules
-  ( rules ) where
+module Duckling.Distance.DE.Rules (rules) where
 
 import Data.String
 import Data.Text (Text)
@@ -20,22 +18,23 @@ import Prelude
 import Duckling.Dimensions.Types
 import Duckling.Distance.Helpers
 import Duckling.Distance.Types (DistanceData(..))
-import Duckling.Numeral.Helpers
-import Duckling.Numeral.Types (NumeralData (..))
-import Duckling.Types
 import qualified Duckling.Distance.Types as TDistance
+import Duckling.Numeral.Helpers
+import Duckling.Numeral.Types (NumeralData(..))
 import qualified Duckling.Numeral.Types as TNumeral
+import Duckling.Types
 
 distances :: [(Text, String, TDistance.Unit)]
-distances = [ -- Imperial
-              ("miles", "meilen?", TDistance.Mile)
-            , ("inch", "(\"|''|zoll)", TDistance.Inch)
+distances =
+  [ -- Imperial
+    ("miles", "meilen?", TDistance.Mile)
+  , ("inch", "(\"|''|zoll)", TDistance.Inch)
               -- Metric
-            , ("km", "k(ilo)?m(etern?)?", TDistance.Kilometre)
-            , ("meters", "m(etern?)?", TDistance.Metre)
-            , ("centimeters", "(cm|[zc]entimetern?)", TDistance.Centimetre)
-            , ("millimeters", "(mm|millimetern?)", TDistance.Millimetre)
-            ]
+  , ("km", "k(ilo)?m(etern?)?", TDistance.Kilometre)
+  , ("meters", "m(etern?)?", TDistance.Metre)
+  , ("centimeters", "(cm|[zc]entimetern?)", TDistance.Centimetre)
+  , ("millimeters", "(mm|millimetern?)", TDistance.Millimetre)
+  ]
 
 rulePrecision :: Rule
 rulePrecision = Rule
@@ -169,5 +168,5 @@ rules =
   , ruleIntervalMin
   , ruleIntervalNumeralDash
   , ruleIntervalDash
-  , rulePrecision]
-  ++ ruleDistances
+  , rulePrecision
+  ] ++ ruleDistances

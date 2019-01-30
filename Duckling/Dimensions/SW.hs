@@ -6,7 +6,7 @@
 -- of patent rights can be found in the PATENTS file in the same directory.
 
 
-module Duckling.Dimensions.IT
+module Duckling.Dimensions.SW
   ( allDimensions
   ) where
 
@@ -14,11 +14,5 @@ import Duckling.Dimensions.Types
 
 allDimensions :: [Some Dimension]
 allDimensions =
-  [ This Distance
-  , This Duration
-  , This Numeral
-  , This Ordinal
-  , This Temperature
-  , This Time
-  , This Volume
+  [ This Numeral
   ]
