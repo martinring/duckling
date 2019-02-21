@@ -1,4 +1,4 @@
--- Copyright (c) 2016-present, Facebook, Inc.
+---Copyright (c) 2016-present, Facebook, Inc.
 -- All rights reserved.
 --
 -- This source code is licensed under the BSD-style license found in the
@@ -8,8 +8,7 @@
 
 {-# LANGUAGE GADTs #-}
 
-
-module Duckling.Rules.HE
+module Duckling.Rules.KN
   ( defaultRules
   , langRules
   , localeRules
@@ -18,12 +17,7 @@ module Duckling.Rules.HE
 import Duckling.Dimensions.Types
 import Duckling.Locale
 import Duckling.Types
-import qualified Duckling.AmountOfMoney.HE.Rules as AmountOfMoney
-import qualified Duckling.Duration.HE.Rules as Duration
-import qualified Duckling.Numeral.HE.Rules as Numeral
-import qualified Duckling.Ordinal.HE.Rules as Ordinal
-import qualified Duckling.TimeGrain.HE.Rules as TimeGrain
-import qualified Duckling.Time.HE.Rules as Time
+import qualified Duckling.Numeral.KN.Rules as Numeral
 
 defaultRules :: Some Dimension -> [Rule]
 defaultRules = langRules
@@ -33,19 +27,19 @@ localeRules region (This (CustomDimension dim)) = dimLocaleRules region dim
 localeRules _ _ = []
 
 langRules :: Some Dimension -> [Rule]
-langRules (This AmountOfMoney) = AmountOfMoney.rules
+langRules (This AmountOfMoney) = []
 langRules (This CreditCardNumber) = []
 langRules (This Distance) = []
-langRules (This Duration) = Duration.rules
-langRules (This Email) = []
+langRules (This Duration) = []
 langRules (This Numeral) = Numeral.rules
-langRules (This Ordinal) = Ordinal.rules
+langRules (This Email) = []
+langRules (This Ordinal) = []
 langRules (This PhoneNumber) = []
 langRules (This Quantity) = []
 langRules (This RegexMatch) = []
 langRules (This Temperature) = []
-langRules (This Time) = Time.rules
-langRules (This TimeGrain) = TimeGrain.rules
+langRules (This Time) = []
+langRules (This TimeGrain) = []
 langRules (This Url) = []
 langRules (This Volume) = []
-langRules (This (CustomDimension dim)) = dimLangRules HE dim
+langRules (This (CustomDimension dim)) = dimLangRules KN dim

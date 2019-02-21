@@ -24,7 +24,7 @@ stability:           alpha
 cabal-version:       >=1.10
 tested-with:
   GHC==8.0.2,
-  GHC==8.2.1
+  GHC==8.2.2
 
 extra-source-files:    README.md
                      , PATENTS
@@ -72,6 +72,7 @@ library
                      , Duckling.Rules.JA
                      , Duckling.Rules.KA
                      , Duckling.Rules.KM
+                     , Duckling.Rules.KN
                      , Duckling.Rules.KO
                      , Duckling.Rules.LO
                      , Duckling.Rules.ML
@@ -124,6 +125,7 @@ library
                      , Duckling.Ranking.Classifiers.JA_XX
                      , Duckling.Ranking.Classifiers.KA_XX
                      , Duckling.Ranking.Classifiers.KM_XX
+                     , Duckling.Ranking.Classifiers.KN_XX
                      , Duckling.Ranking.Classifiers.KO_XX
                      , Duckling.Ranking.Classifiers.LO_XX
                      , Duckling.Ranking.Classifiers.ML_XX
@@ -178,6 +180,7 @@ library
                      , Duckling.Dimensions.JA
                      , Duckling.Dimensions.KA
                      , Duckling.Dimensions.KM
+                     , Duckling.Dimensions.KN
                      , Duckling.Dimensions.KO
                      , Duckling.Dimensions.LO
                      , Duckling.Dimensions.ML
@@ -235,6 +238,8 @@ library
                      , Duckling.AmountOfMoney.FR.Rules
                      , Duckling.AmountOfMoney.GA.Corpus
                      , Duckling.AmountOfMoney.GA.Rules
+                     , Duckling.AmountOfMoney.HE.Corpus
+                     , Duckling.AmountOfMoney.HE.Rules
                      , Duckling.AmountOfMoney.HR.Corpus
                      , Duckling.AmountOfMoney.HR.Rules
                      , Duckling.AmountOfMoney.ID.Corpus
@@ -309,6 +314,7 @@ library
                      , Duckling.Distance.Helpers
                      , Duckling.Distance.Rules
                      , Duckling.Distance.Types
+                     , Duckling.DistanceUnits.Types
 
                      -- Duration
                      , Duckling.Duration.AR.Corpus
@@ -423,6 +429,8 @@ library
                      , Duckling.Numeral.KA.Rules
                      , Duckling.Numeral.KM.Corpus
                      , Duckling.Numeral.KM.Rules
+                     , Duckling.Numeral.KN.Corpus
+                     , Duckling.Numeral.KN.Rules
                      , Duckling.Numeral.KO.Corpus
                      , Duckling.Numeral.KO.Rules
                      , Duckling.Numeral.LO.Corpus
@@ -831,6 +839,7 @@ test-suite duckling-test
                      , Duckling.AmountOfMoney.ES.Tests
                      , Duckling.AmountOfMoney.FR.Tests
                      , Duckling.AmountOfMoney.GA.Tests
+                     , Duckling.AmountOfMoney.HE.Tests
                      , Duckling.AmountOfMoney.HR.Tests
                      , Duckling.AmountOfMoney.ID.Tests
                      , Duckling.AmountOfMoney.IT.Tests
@@ -856,6 +865,7 @@ test-suite duckling-test
                      , Duckling.Distance.FR.Tests
                      , Duckling.Distance.GA.Tests
                      , Duckling.Distance.HR.Tests
+                     , Duckling.Distance.IT.Tests
                      , Duckling.Distance.KM.Tests
                      , Duckling.Distance.KO.Tests
                      , Duckling.Distance.MN.Tests
@@ -925,6 +935,7 @@ test-suite duckling-test
                      , Duckling.Numeral.JA.Tests
                      , Duckling.Numeral.KA.Tests
                      , Duckling.Numeral.KM.Tests
+                     , Duckling.Numeral.KN.Tests
                      , Duckling.Numeral.KO.Tests
                      , Duckling.Numeral.LO.Tests
                      , Duckling.Numeral.ML.Tests
