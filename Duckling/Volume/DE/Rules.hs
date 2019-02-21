@@ -23,7 +23,9 @@ import Duckling.Regex.Types
 import Duckling.Volume.Helpers
 import Duckling.Numeral.Helpers (isPositive)
 import qualified Duckling.Volume.Types as TVolume
+import Duckling.Volume.Types (VolumeData(..))
 import qualified Duckling.Numeral.Types as TNumeral
+import Duckling.Numeral.Types (NumeralData(..))
 
 volumes :: [(Text, String, TVolume.Unit)]
 volumes = [ ("<latent vol> ml", "m(l|illiliter[ns]?)", TVolume.Millilitre)
@@ -123,6 +125,41 @@ ruleIntervalBetween = Rule
       _ -> Nothing
   }
 
+ruleIntervalNumeralDash :: Rule
+ruleIntervalNumeralDash = Rule
+  { name = "<numeral> - <dist>"
+  , pattern =
+    [ Predicate isPositive
+    , regex "-|bis"
+    , Predicate isSimpleVolume
+    ]
+  , prod = \case
+      (Token Numeral NumeralData{TNumeral.value = from}:
+        _:
+        Token Volume VolumeData{TVolume.value = Just to, TVolume.unit = Just u}:
+        _) | from < to ->
+          Just . Token Volume . withInterval (from, to) $ unitOnly u
+      _ -> Nothing
+  }
+
+ruleIntervalDash :: Rule
+ruleIntervalDash = Rule
+  { name = "<dist> - <dist>"
+  , pattern =
+    [ Predicate isSimpleVolume
+    , regex "-|bis"
+    , Predicate isSimpleVolume
+    ]
+  , prod = \case
+      (Token Volume VolumeData{TVolume.value = Just from, TVolume.unit = Just u1}:
+        _:
+        Token Volume VolumeData{TVolume.value = Just to, TVolume.unit = Just u2}:
+        _) | from < to && u1 == u2 ->
+        Just . Token Volume . withInterval (from, to) $ unitOnly u1
+      _ -> Nothing
+  }
+  
+
 ruleIntervalMax :: Rule
 ruleIntervalMax = Rule
   { name = "at most <volume>"
@@ -159,6 +196,8 @@ rules :: [Rule]
 rules = [ rulePrecision
         , ruleIntervalBetweenNumeral
         , ruleIntervalBetween
+        , ruleIntervalNumeralDash
+        , ruleIntervalDash
         , ruleIntervalMax
         , ruleIntervalMin
         ]

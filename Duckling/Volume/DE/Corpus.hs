@@ -67,6 +67,7 @@ allExamples = concat
              [ "etwa 2 -7 l"
              , "~2-7 liter"
              , "von 2 bis 7 l"
+             , "zwei bis 7 liter"
              , "zwischen 2,0 l und ungefähr 7,0 l"
              , "zwischen 2l und etwa 7l"
              , "2 - ~7 liter"

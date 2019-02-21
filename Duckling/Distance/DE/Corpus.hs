@@ -52,6 +52,7 @@ allExamples = concat
              ]
   , examples (between Kilometre (3, 5))
              [ "zwischen 3 und 5 kilometern"
+             , "drei bis 5 kilometer"
              , "von 3km bis 5km"
              , "um die 3-5 kilometer"
              , "etwa 3km-5km"
