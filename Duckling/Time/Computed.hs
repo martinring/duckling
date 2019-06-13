@@ -2,15 +2,16 @@
 -- All rights reserved.
 --
 -- This source code is licensed under the BSD-style license found in the
--- LICENSE file in the root directory of this source tree. An additional grant
--- of patent rights can be found in the PATENTS file in the same directory.
+-- LICENSE file in the root directory of this source tree.
 
 module Duckling.Time.Computed
   ( chanukah, chineseNewYear, dhanteras, easterSunday, eidalAdha, eidalFitr
-  , globalYouthServiceDay, guruGobindSinghJayanti, lagBaOmer, mawlid, muharram
-  , navaratri, orthodoxEaster, passover, rajab, rakshaBandhan, ramadan
-  , roshHashana, thaiPongal, thiruOnam, tishaBAv, tuBishvat, vasantPanchami
-  , vesak, yomHaatzmaut, vaisakhi, purim, saraswatiJayanti
+  , globalYouthServiceDay, guruGobindSinghJayanti, krishnaJanmashtami, lagBaOmer
+  , mawlid, muharram, navaratri, orthodoxEaster, passover, rajab, rakshaBandhan
+  , ramadan, roshHashana, thaiPongal, thiruOnam, tishaBAv, tuBishvat
+  , vasantPanchami, vesak, yomHaatzmaut, vaisakhi, purim, saraswatiJayanti
+  , rabindraJayanti, ravidassJayanti
+
   ) where
 
 import Data.Maybe
@@ -1003,7 +1004,58 @@ eidalAdha = computedDays eidalAdha'
 
 eidalAdha' :: [TimeObject]
 eidalAdha' = mapMaybe toTimeObjectM
-  [ (2000, 3, 16)
+  [ (1950, 9, 23)
+  , (1951, 9, 12)
+  , (1952, 8, 31)
+  , (1953, 8, 20)
+  , (1954, 8, 9)
+  , (1955, 7, 30)
+  , (1956, 7, 19)
+  , (1957, 7, 8)
+  , (1958, 6, 27)
+  , (1959, 6, 17)
+  , (1960, 6, 4)
+  , (1961, 5, 25)
+  , (1962, 5, 14)
+  , (1963, 5, 3)
+  , (1964, 4, 22)
+  , (1965, 4, 11)
+  , (1966, 4, 1)
+  , (1967, 3, 21)
+  , (1968, 3, 9)
+  , (1969, 2, 27)
+  , (1970, 2, 16)
+  , (1971, 2, 6)
+  , (1972, 1, 26)
+  , (1973, 1, 14)
+  , (1974, 1, 3)
+  , (1974, 12, 24)
+  , (1975, 12, 13)
+  , (1976, 12, 1)
+  , (1977, 11, 21)
+  , (1978, 11, 10)
+  , (1979, 10, 31)
+  , (1980, 10, 19)
+  , (1981, 10, 8)
+  , (1982, 9, 27)
+  , (1983, 9, 17)
+  , (1984, 9, 5)
+  , (1985, 8, 26)
+  , (1986, 8, 15)
+  , (1987, 8, 4)
+  , (1988, 7, 23)
+  , (1989, 7, 13)
+  , (1990, 7, 2)
+  , (1991, 6, 22)
+  , (1992, 6, 11)
+  , (1993, 5, 31)
+  , (1994, 5, 20)
+  , (1995, 5, 9)
+  , (1996, 4, 27)
+  , (1997, 4, 17)
+  , (1998, 4, 7)
+  , (1999, 3, 27)
+  , (2000, 3, 16)
   , (2001, 3, 5)
   , (2002, 2, 22)
   , (2003, 2, 11)
@@ -1708,6 +1760,44 @@ guruGobindSinghJayanti' = mapMaybe toTimeObjectM
   , (2030, 1, 10)
   ]
 
+krishnaJanmashtami :: TimeData
+krishnaJanmashtami = computedDays krishnaJanmashtami'
+
+krishnaJanmashtami' :: [TimeObject]
+krishnaJanmashtami' = mapMaybe toTimeObjectM
+    [ (2000, 8, 22)
+    , (2001, 8, 12)
+    , (2002, 8, 31)
+    , (2003, 8, 20)
+    , (2004, 9, 6)
+    , (2005, 8, 26)
+    , (2006, 8, 15)
+    , (2007, 9, 3)
+    , (2008, 8, 23)
+    , (2009, 8, 13)
+    , (2010, 9, 1)
+    , (2011, 8, 21)
+    , (2012, 8, 9)
+    , (2013, 8, 28)
+    , (2014, 8, 17)
+    , (2015, 9, 5)
+    , (2016, 8, 25)
+    , (2017, 8, 14)
+    , (2018, 9, 3)
+    , (2019, 8, 23)
+    , (2020, 8, 11)
+    , (2021, 8, 30)
+    , (2022, 8, 19)
+    , (2023, 9, 6)
+    , (2024, 8, 26)
+    , (2025, 8, 16)
+    , (2026, 9, 4)
+    , (2027, 8, 25)
+    , (2028, 8, 13)
+    , (2029, 9, 1)
+    , (2030, 8, 21)
+    ]
+
 vesak :: TimeData
 vesak = computedDays vesak'
 
@@ -1928,4 +2018,80 @@ saraswatiJayanti' = mapMaybe toTimeObjectM
   , (2028, 2, 19)
   , (2029, 2, 8)
   , (2030, 2, 27)
+  ]
+
+rabindraJayanti :: TimeData
+rabindraJayanti = computedDays rabindraJayanti'
+
+rabindraJayanti' :: [TimeObject]
+rabindraJayanti' = mapMaybe toTimeObjectM
+  [ (2000, 5, 8)
+  , (2001, 5, 9)
+  , (2002, 5, 9)
+  , (2003, 5, 9)
+  , (2004, 5, 8)
+  , (2005, 5, 9)
+  , (2006, 5, 9)
+  , (2007, 5, 9)
+  , (2008, 5, 8)
+  , (2009, 5, 9)
+  , (2010, 5, 9)
+  , (2011, 5, 9)
+  , (2012, 5, 8)
+  , (2013, 5, 9)
+  , (2014, 5, 9)
+  , (2015, 5, 9)
+  , (2016, 5, 8)
+  , (2017, 5, 9)
+  , (2018, 5, 9)
+  , (2019, 5, 9)
+  , (2020, 5, 8)
+  , (2021, 5, 9)
+  , (2022, 5, 9)
+  , (2023, 5, 9)
+  , (2024, 5, 8)
+  , (2025, 5, 9)
+  , (2026, 5, 9)
+  , (2027, 5 ,9)
+  , (2028, 5, 9)
+  , (2029, 5, 9)
+  , (2030, 5, 9)
+  ]
+
+ravidassJayanti :: TimeData
+ravidassJayanti = computedDays ravidassJayanti'
+
+ravidassJayanti' :: [TimeObject]
+ravidassJayanti' = mapMaybe toTimeObjectM
+  [ (2000, 2, 19)
+  , (2001, 2, 8)
+  , (2002, 2, 27)
+  , (2003, 2, 16)
+  , (2004, 2, 6)
+  , (2005, 2, 24)
+  , (2006, 2, 13)
+  , (2007, 2, 2)
+  , (2008, 2, 21)
+  , (2009, 2, 9)
+  , (2010, 1, 30)
+  , (2011, 2, 18)
+  , (2012, 2, 7)
+  , (2013, 2, 25)
+  , (2014, 2, 14)
+  , (2015, 2, 3)
+  , (2016, 2, 22)
+  , (2017, 2, 10)
+  , (2018, 1, 31)
+  , (2019, 2, 19)
+  , (2020, 2, 9)
+  , (2021, 2, 27)
+  , (2022, 2, 16)
+  , (2023, 2, 5)
+  , (2024, 2, 24)
+  , (2025, 2, 12)
+  , (2026, 2, 1)
+  , (2027, 2 ,20)
+  , (2028, 2, 10)
+  , (2029, 1, 30)
+  , (2030, 2, 18)
   ]
